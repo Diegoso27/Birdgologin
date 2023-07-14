@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main_content %}
+
+<div class="container mt-3"> 
+    <h1>Acerca de Bird Go</h1>
+  </div>
+  <div class="container mt-5">
+    <p> Bird Go es una plataforma donde las personas podran registrar las distintas especies de ave que logren fotografiar.
+        Esto con la finalidad de promover la educación ambiental sobre la biodiversidad que existe en nuestro pais.</p>
+  </div> 
+  <div class="container mt-5">
+    <h1> Quienes somos</h1>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+    <div id="cards" class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{% static 'img/about01.jpeg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Diego Martínez</h5>
+        <p class="card-text">Guia de turismo aventura e interpretación de flora y fauna</p>
+      </div> 
+    </div>
+    </div>
+    <div class="row">
+    <div id="cards" class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{% static 'img/about02.jpeg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Zorzalito Perez</h5>
+        <p class="card-text">Gerente general Bird Go</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block title %}BirdGo{% endblock %}
+
+{% block main_content %}
+<div class="container m-4">
+    <div class="row mb-3">
+        <h1>ID ave : {{bird.id_ave}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {% if bird.imagen_ave %}
+            <img class="" src="{{bird.imagen_ave.url}}" alt="{{bird.nombre_ave}}">
+            {% else%}
+            <img class="" src="{% static 'crud/img/image_not_found.jpg' %}" alt="INF">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <ul class="list-unstyled">
+                <li class="mb-2">Nombre común: <p class="fw-bold">{{bird.nombre_ave}}</p></li>
+                <li class="mb-2">Nombre científico: <p class="fw-bold">{{bird.nombre_cientifico}}</p></li>>
+            </ul>
+            <div class="row">
+                <div class="col-2">
+                    <a class="btn btn-outline-primary" href="{% url 'birds' %}">Volver</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-secondary" href="{% url 'bird-edit' bird_id=bird.id_ave %}">Editar</a>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock %}

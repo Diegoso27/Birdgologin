@@ -1,0 +1,175 @@
+#header{
+    background-color: #198754;
+    color: white;
+    justify-content: center;
+
+    #reloj{
+        display: flex;
+        justify-content: left;
+    }
+    
+}
+
+#cards{
+  background-color: azure;
+
+}
+
+#contenedor-contacto{
+  display: flex;
+  flex-direction: column;
+  height: 900px;
+  width: 600px;
+  align-items: center;
+  justify-content: center;
+  background-color: azure;
+  margin-top: 100px;
+  border-radius: 10px;
+
+  .error{
+    color: red;
+  }
+
+}
+
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+#navbar {
+  background-color:#198754;
+}
+
+
+
+/* pagina registro */
+.form-reg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-registro {
+  background-color:#198754;
+  color: white;
+  width: 300px;
+
+}
+ 
+
+#forma-contacto{
+  height: 1000px;
+  width: 800px;
+}
+
+
+/* contenedor registro */
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+    margin-top: 100px;
+    border-radius: 10px;
+    
+    .item-registro {
+        margin-bottom: 1.5em;
+        width: 300px;
+    }
+
+    .form-control {
+        height: 3em;
+        
+    }
+    
+    .error {
+        color:red;
+    }
+    
+    .bg-success {
+        width: 300px;
+        color: white; 
+    }
+}
+
+#toggle{
+  display : none;
+
+}
+
+#label_toggle{
+  position: absolute;
+  top: 5px;  
+  right: 10px;
+  font-size: 2em;
+  color: rebeccapurple;
+  cursor: pointer;  
+}
+
+/*  MODO OSCURO */
+
+.dark{
+  background-color: #333;
+  color: white;
+  transition: all 1.5 ease;
+  
+  #contenedor-contacto{
+    background-color: rebeccapurple;
+   
+    .error {
+      color : white;
+    }
+  }
+
+  #cards{
+    color : white;
+    background-color: black;
+  }
+
+  #btnEnviar{
+    background-color: #333;
+  }
+
+  #header{
+    background-color: rebeccapurple;
+  }
+
+  .contenedor{
+    background-color: rebeccapurple;
+  }
+
+  .form-control{
+    background-color: #333;
+    color: white;
+  }
+
+  #link{
+    color : red;
+  }
+  #link:hover{
+    color: white;
+  }
+
+  ::placeholder{
+    color:antiquewhite;
+  }
+  
+  .error{
+    color:antiquewhite;
+  }
+
+  #btn-registro {
+    background-color: #333;
+  }
+  
+  #navbar{
+    background-color: rebeccapurple;
+  }
+
+
+}

@@ -1,0 +1,96 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% block title %}BirdGo{% endblock %}
+{% block main_content %}
+<div class="container my-2 p-2 bg-dark text-white text-center rounded">
+    <h1>Mi registro de aves</h1>
+</div>
+
+<div class="container my-2">
+    <div class="row">
+        {% if 'OK' in request.GET %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Ohh hell yeah!</strong> Videojuego registrado satisfactoriamente!!!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% if 'FAIL' in request.GET %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> Se produjo un error, y no podemos atender a tu solicitud.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% if 'NO_EXISTS' in request.GET %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> No se encontró el videojuego indicado en nuestros registros.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% if 'UPDATED' in request.GET %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> Videojuego actualizado correctamente!!!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% if 'DELETED' in request.GET %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> Videojuego eliminado correctamente!!!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container-fluid my-2">
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre común</th>
+                    <th>Nombre científico</th>
+                    <th>Fotografía</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bird in birds %}
+                <tr>
+                    <td>{{bird.id_ave}}</td>
+                    <td>{{bird.nombre_ave}}</td>
+                    <td>{{bird.nombre_cientifico}}</td>
+                    <td>
+                        {% if bird.imagen_ave %}
+                        <img class="img-videogame" src="{{bird.imagen_ave.url}}" alt="{{bird.title}}">
+                        {% else%}
+                        <img class="img-videogame" src="{% static 'crud/img/image_not_found.jpg' %}" alt="INF">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a class="text-decoration-none" href="{% url 'bird-detail' bird_id=bird.id_ave %}">
+                            <span class="text-primary fs-2">
+                                <i class="fa-solid fa-eye"></i>
+                            </span>
+                        </a>
+                        <a class="text-decoration-none" href="{% url 'bird-edit' bird_id=bird.id_ave %}">
+                            <span class="text-warning fs-2">
+                                <i class="fa-solid fa-pencil"></i>
+                            </span>
+                        </a>
+                        <a class="text-decoration-none"
+                            href="{% url 'bird-delete' bird_id=bird.id_ave %} ">
+                            <span class="text-danger fs-2">
+                                <i class="fa-solid fa-trash"></i>
+                            </span>
+                        </a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
